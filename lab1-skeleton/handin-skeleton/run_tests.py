@@ -3,15 +3,16 @@ import os
 from subprocess import check_output
 import re
 from time import sleep
-
+import matplotlib.pyplot as plt
+import numpy as np
 #
 #  Feel free (a.k.a. you have to) to modify this to instrument your code
 #
-
-THREADS = [0]
-LOOPS = [1, 10, 100]
-INPUTS = ["seq_64_test.txt", "1k.txt", "8k.txt", "16k.txt"]
-
+nThread = 17
+THREADS = [2*i for i in range(1, nThread)]
+LOOPS = [100000]
+INPUTS = ["1k.txt", "8k.txt", "16k.txt"]
+#INPUTS = ["test_16.txt"]
 
 csvs = []
 for inp in INPUTS:
@@ -35,3 +36,27 @@ print("\n")
 print(", ".join(header))
 for csv in csvs:
     print (", ".join(csv))
+
+x = np.arange(len(INPUTS))+2
+bar_wth = 0.15
+#fig = plt.figure()
+#ax = fig.add_axes(THREADS)
+plt.yscale('log')
+
+for i in range(len(csvs)):
+    y = [int(i) for i in csvs[i][1:]]
+    plt.plot(THREADS, y, marker='o', label=INPUTS[i])
+#for i in range(len(THREADS)):
+    #time=[0]*len(INPUTS)
+    #for j in range(len(INPUTS)):
+    #    time[j] = csvs[j][i]
+    #rects = ax.bar(x + bar_wth*bar_pos[i], time, bar_wth, label=str(THREADS[i]))
+#for csv in csvs:
+#    rects = ax.bar(x - bar_wth/2, csv, bar_wth)
+#ax.set_xticks(x)
+#ax.set_xticklabels(INPUTS)
+#ax.set_ylabel('Running Time(ms)')
+plt.legend()
+plt.show()
+
+
