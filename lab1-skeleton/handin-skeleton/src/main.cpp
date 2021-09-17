@@ -1,6 +1,6 @@
 #include <iostream>
 #include <argparse.h>
-#include <threads.h>
+#include "threads.h"
 #include <io.h>
 #include <chrono>
 #include <cstring>
@@ -12,10 +12,12 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+    
     // Parse args
     struct options_t opts;
     get_opts(argc, argv, &opts);
 
+    
     bool sequential = false;
     if (opts.n_threads == 0) {
         opts.n_threads = 1;
@@ -39,9 +41,17 @@ int main(int argc, char **argv)
     fill_args(ps_args, opts.n_threads, n_vals, input_vals, output_vals,
         opts.spin, scan_operator, opts.n_loops);
 
+
+    pthread_barrier_t barrier;
+    pthread_barrier_init(&barrier, NULL, ps_args->n_threads);
+
+    for (int i = 0; i < opts.n_threads; i++) {
+        ps_args[i].barrier = &barrier;
+    }
+    
     // Start timer
     auto start = std::chrono::high_resolution_clock::now();
-
+    
     if (sequential)  {
         //sequential prefix scan
         output_vals[0] = input_vals[0];
@@ -51,12 +61,16 @@ int main(int argc, char **argv)
         }
     }
     else {
-        //start_threads(threads, opts.n_threads, ps_args, <your function>);
+        
+        
+        start_threads(threads, opts.n_threads, ps_args, compute_prefix_sum);
 
         // Wait for threads to finish
         join_threads(threads, opts.n_threads);
-    }
 
+        
+    }
+    pthread_barrier_destroy(&barrier);
     //End timer and print out elapsed
     auto end = std::chrono::high_resolution_clock::now();
     auto diff = std::chrono::duration_cast<std::chrono::microseconds>(end - start);

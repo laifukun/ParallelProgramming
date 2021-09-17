@@ -19,6 +19,7 @@ void read_file(struct options_t* args,
 	// Read input vals
 	for (int i = 0; i < *n_vals; ++i) {
 		in >> (*input_vals)[i];
+		(*output_vals)[i] = (*input_vals)[i];
 	}
 }
 
