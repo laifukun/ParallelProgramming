@@ -9,7 +9,7 @@ import numpy as np
 #  Feel free (a.k.a. you have to) to modify this to instrument your code
 #
 nThread = 17
-THREADS = [2*i for i in range(1, nThread)]
+THREADS = [2*i for i in range(0, nThread)]
 LOOPS = [100000]
 INPUTS = ["1k.txt", "8k.txt", "16k.txt"]
 #INPUTS = ["test_16.txt"]
@@ -54,8 +54,9 @@ for i in range(len(csvs)):
 #for csv in csvs:
 #    rects = ax.bar(x - bar_wth/2, csv, bar_wth)
 #ax.set_xticks(x)
-#ax.set_xticklabels(INPUTS)
-#ax.set_ylabel('Running Time(ms)')
+#ax.set_xticklabels(THREADS)
+plt.ylabel('Running Time(ms) (log scale)')
+plt.xlabel('Number of Threads')
 plt.legend()
 plt.show()
 

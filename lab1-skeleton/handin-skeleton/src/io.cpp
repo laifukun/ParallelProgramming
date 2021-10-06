@@ -1,5 +1,6 @@
 #include <io.h>
 #include "helpers.h"
+#include "search.h"
 
 void read_file(struct options_t* args,
                int*              n_vals,
@@ -12,15 +13,26 @@ void read_file(struct options_t* args,
 	// Get num vals
 	in >> *n_vals;
 
+	int n_alloc = *n_vals;
+#if BLELLOCH_ALGORITHM == 1
+	n_alloc = next_power_of_two(*n_vals);
+#endif
 	// Alloc input and output arrays
-	*input_vals = (int*) malloc(*n_vals * sizeof(int));
-	*output_vals = (int*) malloc(*n_vals * sizeof(int));
+	*input_vals = (int*) malloc(n_alloc * sizeof(int));
+	*output_vals = (int*) malloc(n_alloc * sizeof(int));
 
 	// Read input vals
-	for (int i = 0; i < *n_vals; ++i) {
-		in >> (*input_vals)[i];
-		(*output_vals)[i] = (*input_vals)[i];
+	for (int i = 0; i < n_alloc; ++i) {
+		if (i < *n_vals) {
+			in >> (*input_vals)[i];
+			(*output_vals)[i] = (*input_vals)[i];
+		} else {
+			(*input_vals)[i] = 0;
+			(*output_vals)[i] = 0;
+		}
+		
 	}
+
 }
 
 void write_file(struct options_t*         args,

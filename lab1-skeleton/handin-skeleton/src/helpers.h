@@ -1,5 +1,5 @@
 #pragma once
-
+#include "selection.h"
 #include "operators.h"
 #include <stdlib.h>
 #include <pthread.h>
@@ -14,7 +14,12 @@ struct prefix_sum_args_t {
   int                t_id;
   int (*op)(int, int, int);
   int n_loops;
+
+#ifdef SPIN_BARRIER
+  spin_barrier* barrier;
+#else
   pthread_barrier_t* barrier;
+#endif
 };
 
 prefix_sum_args_t* alloc_args(int n_threads);

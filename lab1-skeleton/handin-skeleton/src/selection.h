@@ -1,0 +1,10 @@
+#ifndef _SELECTION_H_
+#define _SELECTION_H_
+
+#define PTHREAD_BARRIER
+//#define SPIN_BARRIER
+//#define BLELLOCH_ALGORITHM 1
+#define TWOLEVEL_ALGORITHM 1
+//#define HS_ALGORITHM 1
+#endif
+

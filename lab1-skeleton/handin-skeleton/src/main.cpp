@@ -1,3 +1,5 @@
+
+#include "selection.h"
 #include <iostream>
 #include <argparse.h>
 #include "threads.h"
@@ -41,9 +43,13 @@ int main(int argc, char **argv)
     fill_args(ps_args, opts.n_threads, n_vals, input_vals, output_vals,
         opts.spin, scan_operator, opts.n_loops);
 
-
+#ifdef SPIN_BARRIER
+    spin_barrier barrier;
+    spin_barrier_init(&barrier, opts.n_threads);
+#else
     pthread_barrier_t barrier;
     pthread_barrier_init(&barrier, NULL, ps_args->n_threads);
+#endif
 
     for (int i = 0; i < opts.n_threads; i++) {
         ps_args[i].barrier = &barrier;
@@ -62,7 +68,6 @@ int main(int argc, char **argv)
     }
     else {
         
-        
         start_threads(threads, opts.n_threads, ps_args, compute_prefix_sum);
 
         // Wait for threads to finish
@@ -70,7 +75,12 @@ int main(int argc, char **argv)
 
         
     }
+
+#ifdef SPIN_BARRIER
+    spin_barrier_destroy(&barrier);
+#else
     pthread_barrier_destroy(&barrier);
+#endif
     //End timer and print out elapsed
     auto end = std::chrono::high_resolution_clock::now();
     auto diff = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
