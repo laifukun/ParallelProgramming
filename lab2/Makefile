@@ -1,7 +1,7 @@
 CC = g++ 
-SRCS = ./src/*.cpp
+SRCS = ./src/seq/*.cpp
 INC = ./src/
-OPTS = -std=c++17 -Wall -Werror -lpthread -O3
+OPTS = -std=c++17 -Wall -Werror -O3
 
 EXEC = bin/kmean
 

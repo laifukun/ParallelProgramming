@@ -18,7 +18,6 @@ int main(int argc, char **argv)
     // Parse args
     struct options_t opts;
     get_opts(argc, argv, &opts);
-
     
     bool sequential = true;
 
@@ -26,16 +25,19 @@ int main(int argc, char **argv)
     double **input_vals, **centroids;
     int* clusterId_of_point;
     read_file(&opts, &n_vals, &input_vals, &centroids, &clusterId_of_point);
-    
-    kmean_args_t kmean_args;
-    fill_args(&kmean_args, &opts, input_vals, 
+
+    kmean_args_t* kmean_args = (kmean_args_t*)malloc(sizeof(kmean_args_t));;
+
+    fill_args(kmean_args, &opts, input_vals, 
         n_vals, centroids, clusterId_of_point);
 
+    kmeans_srand(opts.seed);
+    //cout<<"n_vals "<<n_vals<<endl;
     // Start timer
     auto start = std::chrono::high_resolution_clock::now();
-    
+ 
     if (sequential)  {
-        kmean_seq(&kmean_args);
+        kmean_seq(kmean_args);
     }
 
     //End timer and print out elapsed
@@ -43,9 +45,9 @@ int main(int argc, char **argv)
     auto diff = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
     //std::cout << "time: " << diff.count() << std::endl;
 
-    printf("%d,%lf\n", kmean_args.iter_converge, (double)diff.count()/kmean_args.iter_converge);
+    printf("%d,%lf\n", kmean_args->iter_converge, (double)diff.count()/kmean_args->iter_converge);
     // Write output data
-    write_file(&opts, &kmean_args);
+    write_file(&opts, kmean_args);
 
     // Free other buffers
     //free(&kmean_args);

@@ -47,7 +47,7 @@ void write_file(options_t*         opts,
 	//out.open(args->out_file, std::ofstream::trunc);
 
 	// Write solution to output file
-    if (opts->output_centroids) {
+    if (!opts->output_centroids) {
         printf("clusters:");
         for (int p=0; p < args->n_vals; p++)
             printf(" %d", args->clusterId_of_point[p]);

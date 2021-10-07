@@ -15,7 +15,7 @@ struct kmean_args_t {
   int               num_cluster;
 };
 
-kmean_args_t* alloc_args(int n_threads);
+//kmean_args_t* alloc_args(int n_threads);
 
 int next_power_of_two(int x);
 
