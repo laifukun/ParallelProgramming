@@ -19,7 +19,7 @@ for inp in INPUTS:
 #    for loop in LOOPS:
 #        csv = ["{}/{}".format(inp, loop)]
 
-    cmd = "./bin/kmean -k 16 -d 16 -i tests/random-n16384-d24-c16.txt -m 150 -t 1E-6 -c -s 8675309".format(
+    cmd = "./bin/kmeans -k 16 -d 16 -i tests/random-n2048-d16-c16.txt -m 150 -t 1E-6 -c -a seq -s 8675309".format(
                 inp)
             out = check_output(cmd, shell=True).decode("ascii")
             m = re.search("time: (.*)", out)
