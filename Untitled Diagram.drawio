@@ -1,1 +1,119 @@
-<mxfile host="app.diagrams.net" modified="2021-11-22T21:01:40.752Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" version="15.8.3" etag="psJGiUtnKrnDvgszzjjO" type="github"><diagram id="peZshKhcva1nVJUCrH02">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-22T21:40:40.646Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" etag="BhhklA3RkhrQY0DbmbGW" version="15.8.3" type="github">
+  <diagram id="peZshKhcva1nVJUCrH02" name="Page-1">
+    <mxGraphModel dx="1662" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-2" value="Quiescent/Idle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-3" value="ReceivedRequest" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-4" value="ProposalSent" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-5" value="ReceivedVotesAbort" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-6" value="ReceivedVotesCommit" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-7" value="SentGlobalDecision" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="630" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-9" value="Received request" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-2" target="5S44KLfH-QkkOdV_A0cy-3">
+          <mxGeometry x="0.0667" y="10" width="80" relative="1" as="geometry">
+            <mxPoint x="400" y="370" as="sourcePoint" />
+            <mxPoint x="480" y="370" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-10" value="Sent Proposal to all participants" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-3" target="5S44KLfH-QkkOdV_A0cy-4">
+          <mxGeometry x="-0.0909" y="10" width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="410" as="sourcePoint" />
+            <mxPoint x="590" y="410" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-13" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-3" target="5S44KLfH-QkkOdV_A0cy-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="430" as="sourcePoint" />
+            <mxPoint x="290" y="160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-14" value="Bad request" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="390" y="200" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-17" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="5S44KLfH-QkkOdV_A0cy-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="850" y="320" as="sourcePoint" />
+            <mxPoint x="800" y="180" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="950" y="320" />
+              <mxPoint x="950" y="250" />
+              <mxPoint x="800" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-18" value="Waiting for all participants&#39; response" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="210" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-20" value="All participants vote commit" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-4" target="5S44KLfH-QkkOdV_A0cy-6">
+          <mxGeometry x="0.0475" y="-10" width="60" relative="1" as="geometry">
+            <mxPoint x="520" y="390" as="sourcePoint" />
+            <mxPoint x="580" y="390" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-21" value="Any participant votes abort or timeout" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.583;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-4" target="5S44KLfH-QkkOdV_A0cy-5">
+          <mxGeometry x="0.1666" y="19" width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="390" as="sourcePoint" />
+            <mxPoint x="590" y="390" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-22" value="Send abort to all participants and client" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-5" target="5S44KLfH-QkkOdV_A0cy-7">
+          <mxGeometry x="-0.9422" y="44" width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="430" as="sourcePoint" />
+            <mxPoint x="590" y="430" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-23" value="Send commit to all participants and client" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-6" target="5S44KLfH-QkkOdV_A0cy-7">
+          <mxGeometry x="-0.0682" y="-9" width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="430" as="sourcePoint" />
+            <mxPoint x="590" y="430" as="targetPoint" />
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-7" target="5S44KLfH-QkkOdV_A0cy-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="620" as="sourcePoint" />
+            <mxPoint x="930" y="660" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="790" y="750" />
+              <mxPoint x="820" y="750" />
+              <mxPoint x="860" y="750" />
+              <mxPoint x="930" y="750" />
+              <mxPoint x="930" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-25" value="Waiting for all participants&#39; confirmation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="760" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5S44KLfH-QkkOdV_A0cy-26" value="All participants confirmed" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5S44KLfH-QkkOdV_A0cy-7" target="5S44KLfH-QkkOdV_A0cy-2">
+          <mxGeometry x="0.2571" y="54" width="80" relative="1" as="geometry">
+            <mxPoint x="510" y="590" as="sourcePoint" />
+            <mxPoint x="590" y="590" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
